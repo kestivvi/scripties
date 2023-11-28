@@ -1,0 +1,36 @@
+{
+    "profiles": {
+        "defaults": {
+            "colorScheme": "GruvBox",
+            "font": {
+                "face": "IosevkaTerm NF"
+            },
+            "opacity": 90
+        }
+    },
+    "schemes": [
+        {
+            "background": "#000000",
+            "black": "#3C3836",
+            "blue": "#458588",
+            "brightBlack": "#767676",
+            "brightBlue": "#61B4B9",
+            "brightCyan": "#61D6D6",
+            "brightGreen": "#A6A620",
+            "brightPurple": "#FFC6FF",
+            "brightRed": "#E74856",
+            "brightWhite": "#F2F2F2",
+            "brightYellow": "#D79921",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#689D6A",
+            "foreground": "#FBF1C7",
+            "green": "#98971A",
+            "name": "GruvBox",
+            "purple": "#B16286",
+            "red": "#CC241D",
+            "selectionBackground": "#FFFFFF",
+            "white": "#CCCCCC",
+            "yellow": "#D65D0E"
+        }
+    ]
+}
