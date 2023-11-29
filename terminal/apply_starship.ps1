@@ -1,3 +1,9 @@
+# Install Nerd Font
+Write-Host "Install Nerd Fonts"
+scoop bucket add nerd-fonts
+scoop install IosevkaTerm-NF
+Write-Host ""
+
 # Install Starship
 Write-Host "Install Starship"
 winget install --id Starship.Starship
