@@ -18,6 +18,28 @@ function Merge-ObjectsDeeply ($target, $source) {
                 $target.$key += $newItem
             }
         }
+        elseif ($key -eq "list" -and $source.$key -is [System.Collections.IEnumerable] -and $target.$key -is [System.Collections.IEnumerable]) {
+            # If the property is "list", merge based on "source" property and preserve "guid"
+            foreach ($newProfile in $source.$key) {
+                $oldProfile = $target.$key | Where-Object { $_.source -eq $newProfile.source }
+                if ($oldProfile -ne $null) {
+                    $oldGuid = $oldProfile.guid  # Preserve original guid
+                    $newProfileProps = $newProfile | Get-Member -MemberType NoteProperty | ForEach-Object { $_.Name }
+                    foreach ($prop in $newProfileProps) {
+                        if ($oldProfile.PSObject.Properties.Name -contains $prop) {
+                            $oldProfile.$prop = $newProfile.$prop
+                        }
+                        else {
+                            $oldProfile | Add-Member -MemberType NoteProperty -Name $prop -Value $newProfile.$prop
+                        }
+                    }
+                    $oldProfile.guid = $oldGuid
+                }
+                else {
+                    $target.$key += $newProfile
+                }
+            }
+        }
         elseif ($source.$key -is [System.Collections.IEnumerable] -and $target.$key -is [System.Collections.IEnumerable] -and ($source.$key -isnot [string]) -and ($target.$key -isnot [string])) {
             # If the property is an array or list (and not a string), merge them
             $merged = @(Compare-Object -ReferenceObject $source.$key -DifferenceObject $target.$key -PassThru)
