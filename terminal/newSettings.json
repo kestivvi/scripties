@@ -6,7 +6,13 @@
                 "face": "IosevkaTerm Nerd Font"
             },
             "opacity": 90
-        }
+        },
+        "list": [
+            {
+                "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe -nologo",
+                "source": "Windows.Terminal.PowershellCore"
+            }
+        ]
     },
     "schemes": [
         {
