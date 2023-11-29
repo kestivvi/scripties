@@ -3,7 +3,7 @@
         "defaults": {
             "colorScheme": "GruvBox",
             "font": {
-                "face": "IosevkaTerm NF"
+                "face": "IosevkaTerm Nerd Font"
             },
             "opacity": 90
         }
